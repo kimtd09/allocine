@@ -1,0 +1,147 @@
+.allocine-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 200px auto;
+    height: 300px;
+    width: 600px;
+    overflow: hidden;
+    border: 1px silver solid;
+    box-shadow: 3px 3px 10px silver;
+    box-sizing: border-box;
+}
+
+.allocine-card:hover {
+    transition-duration: 0.3s;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.allocine-card-left {
+    width: 200px;
+    height: 300px;
+}
+
+.allocine-card-right {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.allocine-card-header {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.allocine-card-desc {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 0 20px;
+}
+
+.allocine-card-desc-left {
+    flex: 15;
+    display: flex;
+    flex-direction: column;
+}
+
+.allocine-card-desc-right {
+    flex: 5;
+    display: flex;
+    justify-content: end;
+
+    padding-top: 3px;
+}
+
+.allocine-card-desc-rating {
+    font-size: 10px;
+    word-spacing: 1px;
+    color: rgb(122, 122, 122);
+    padding-left: 5px;
+}
+
+.allocine-card-desc-right div {
+    display: flex;
+    align-items: center;
+}
+
+.allocine-card-header h2 {
+    padding: 2px 30px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.allocine-card-header span:nth-child(-n + 2) {
+    font-size: 13px;
+    color: rgb(122, 122, 122);
+}
+
+.allocine-card-img-container {
+    grid-area: a;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.allocine-card-main-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* width: 100%; */
+    height: 100%;
+    object-position: top left;
+    object-fit: contain;
+}
+
+.allocine-card-main-img:hover {
+    transition-duration: 1s;
+    opacity: 0;
+}
+
+.allocine-card-overview {
+    flex: 2 1px;
+    padding: 20px;
+    font-size: 14px;
+    height: auto;
+    /* background-color: yellow; */
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+}
+
+.allocine-card-overview div::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 200;
+    top: 0;
+    background: linear-gradient(transparent 200px, white);
+}
+.allocine-card-overview div {
+    height: 100%;
+    /* background-color: springgreen; */
+    overflow: hidden;
+}
+
+.allocine-backdrop-img {
+    width: 99%;
+    height: 100%;
+}
+
+.allocine-card-star,
+.allocine-card-star-gray {
+    /* fill: #fecc00; */
+    height: 13px;
+    width: 13px;
+    filter: invert(78%) sepia(64%) saturate(1597%) hue-rotate(359deg) brightness(101%) contrast(105%);
+}
+
+.allocine-card-star-gray {
+    filter: invert(95%) sepia(7%) saturate(371%) hue-rotate(223deg) brightness(115%) contrast(69%);
+}
+
+.space {
+    width: 5px;
+}
