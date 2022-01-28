@@ -23,6 +23,7 @@ export default function AlloCine() {
     const [url, setUrl] = useState(url_popular);
     const modalItem = useState({ title: "test_spiderman", langage: "fr", note: "3.5", img: "", link: "" })[0];
     const [showModal, setShowModal] = useState(false);
+    const [showGoToTop, setShowGoToTop] = useState(false);
 
     const fetchData = async (param) => {
         const response = await axios.get(param);
@@ -57,6 +58,17 @@ export default function AlloCine() {
     function myfunc() {
         // console.log(modalItem);
         setShowModal(!showModal);
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll", scrollCheck);
+    },[])
+
+    function scrollCheck(e) {
+        const _currentScroll = document.documentElement.scrollTop;
+        // console.log(_currentScroll);
+        setShowGoToTop( () => _currentScroll > 600 ? true : false );
+        // document.getElementById("go_to_top").classList.toggle("toggleGoTop", _currentScroll > 600 );
     }
 
     return (
@@ -130,12 +142,12 @@ export default function AlloCine() {
         </div>;
     }
 
-    function goToTop() {
+    function goToTop(e) {
         document.documentElement.scrollTo(0, 0);
     }
 
     function goTop() {
-        return <div className="allocine-gotop-container">
+        return <div className="allocine-gotop-container" style={{display: showGoToTop ? "flex" : "none" }}>
             <div className="allocine-gotop" onClick={goToTop}>
                 <img src={gotop} alt="go to top"></img>
             </div>
